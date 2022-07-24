@@ -4,13 +4,13 @@ import UserList from "../components/UserList";
 function Users(){
     const users =[
         {
-            id:"",
+            id:1,
             img:"",
             name:"name",
             posts:0
         },
         {
-            id:"",
+            id:2,
             img:"",
             name:"name",
             posts:0

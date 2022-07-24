@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function UserItem(props){
 return(
-    <Link to={"/hi"}>
+    <Link to={`/${props.id}/posts`}>
     <li>
 <h1>{props.name}</h1>
 <img src={props.img} alt={props.name}/>

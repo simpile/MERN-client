@@ -6,7 +6,7 @@ import {
   
   // Link,
 } from "react-router-dom";
-import Posts from "./posts/components/pages/Posts";
+import Posts from "./posts/pages/Posts";
 import Users from "./users/pages/Users";
 function App() {
   return (
@@ -14,6 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Posts />} />
         <Route path="/users" element={<Users />} />
+        <Route path="*" element={<Users />} />
+
       </Routes>
 
     </BrowserRouter>
