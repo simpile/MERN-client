@@ -1,33 +1,45 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import PostList from '../components/PostList'
-function UserPost() {
-  const posts =[
- {
-  id:"1",
-  title:"sucha good day",
-  description:"with friends",
-  image:"",
-  creator:"user1"
- },
- {
-  id:"2",
-  title:"sucha good day",
-  description:"with friends",
-  image:"",
-  creator:"user1"
- },
- {
-  id:"3",
-  title:"sucha good day",
-  description:"with friends",
-  image:"",
-  creator:"user1"
- }
 
-  ]
+const posts =[
+  {
+   id:"p1",
+   title:"sucha good day1",
+   description:"with friends",
+   image:"",
+   creator:"u1"
+  },
+  {
+   id:"p2",
+   title:"sucha good day2",
+   description:"with friends",
+   image:"",
+   creator:"u2"
+  },
+  {
+   id:"p3",
+   title:"sucha good day3",
+   description:"with friends",
+   image:"",
+   creator:"u3"
+  },
+  {
+    id:"p3",
+    title:"sucha good day3",
+    description:"with friends",
+    image:"",
+    creator:"u3"
+   }
+ 
+   ]
+function UserPost() {
+  const userId = useParams().userId;
+  const loadItem = posts.filter(posts=>posts.creator===userId);
+
   return (
     <ul>
-     <PostList item={posts}/>
+     <PostList item={loadItem}/>
     </ul>
   )
 }

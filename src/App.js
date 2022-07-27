@@ -7,6 +7,7 @@ import {
   // Link,
 } from "react-router-dom";
 import Posts from "./posts/pages/Posts";
+import NewPost from "./posts/pages/NewPost";
 import UserPost from "./posts/pages/UserPost";
 import MainNav from "./shares/components/Navigation/MainNav-parent";
 import Home from "./shares/pages/Home";
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:userId/posts" element={<UserPost />} />
+        <Route path="/newpost" element={<NewPost />} />
         <Route path="/users" element={<Users />} />
         <Route path="*" element={<Home />} />{/* redirect */}
       </Routes>

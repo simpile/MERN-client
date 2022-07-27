@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Button from '../../shares/FormElemants/Button'
 
 function PostItem(props) {
   return (
@@ -22,7 +23,7 @@ function PostItem(props) {
         <h3>{props.description}</h3>
     </div>
     <div>
-        <button>delete</button>
+        <Button>delete</Button>
     </div>
 </li>
     )

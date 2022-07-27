@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-function NavLinks(props) {
+function NavLinks() {
   return (
 <ul>
   <li>
@@ -12,6 +12,9 @@ function NavLinks(props) {
       </li>
   <li>
     <NavLink to="/posts">posts</NavLink>
+      </li>
+  <li>
+    <NavLink to="/newpost">add new post</NavLink>
       </li>
 </ul>
     )

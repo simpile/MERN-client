@@ -4,16 +4,22 @@ import UserList from "../components/UserList";
 function Users(){
     const users =[
         {
-            id:1,
+            id:"u1",
             img:"",
-            name:"name",
-            posts:0
+            name:"name1",
+            posts:1
         },
         {
-            id:2,
+            id:"u2",
             img:"",
-            name:"name",
-            posts:0
+            name:"name2",
+            posts:1
+        },
+        {
+            id:"u3",
+            img:"",
+            name:"name3",
+            posts:2
         }
     ];
     return(
