@@ -1,12 +1,14 @@
 import React, { useReducer } from 'react'
+import {validate} from '../utils/validators'
 
 const inputReducer=(state, action)=>{
   switch(action.type){
     case"CHANGE"
     :return{...state,
       value:action.val,
-      isValid:true
+      isValid:validate(action.val, action.validators),
     }
+    default: return state
   }
 
 }
@@ -15,7 +17,8 @@ function Input(props) {
   const changeHandler =(event)=>{
 dispatch({
   type:"CHANGE",
-  val:event.target.value
+  val:event.target.value,
+  validators:props.validators
 })
   }
     const element = props.element === "input"?(<input
