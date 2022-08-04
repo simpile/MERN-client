@@ -24,6 +24,7 @@ return (
 type={props.type}
 onClick={props.onClick}
 className={`btn`}
+disabled={props.disabled}
 >
     {props.children}
 </button>

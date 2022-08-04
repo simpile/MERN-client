@@ -3,31 +3,36 @@ import Button from '../../shares/FormElemants/Button'
 import Input from '../../shares/FormElemants/Input'
 import {validatorRequire} from'../../shares/utils/validators'
 
-const formReducer=(state, action)=>{
+const formReducer=(statee, action)=>{
   switch(action.type){
-    case'INPUT-CHANGE':{
-      let formIsValid = true;
-      for (const InputId in state.inputs){if(InputId===action.InputId){
-        formIsValid = formIsValid && action.isValid} else{
-          formIsValid = formIsValid && state.inputs[InputId].isValid;
+    case'INPUT-CHANGE':
+      let formIsValid = true
+      for (const inputId in statee.inputs){
+        if(inputId===action.inputId){
+        formIsValid = formIsValid && action.isValid}
+         else{
+          formIsValid = formIsValid && statee.inputs[inputId].isValid
         }
       }
       return{
-        ...state,
-        ...state.inputs,
-        [action.InputId]:{
+        ...statee,
+        inputs:{
+        ...statee.inputs,
+        [action.inputId]:{
           value:action.value,
-          isValid:action.isValid
-        },isValid:formIsValid
-        }
+          isValid:action.isValid}
+        },
+        isValid:formIsValid
+        
       }
-      default: return state
+      default: 
+      return statee
   }
 
 }
 
 function NewPost() {
-  const [formState, formDispatch]=(formReducer,{
+  const [formState, formDispatch]=useReducer(formReducer,{
 inputs:{
   postTitle:{
 valu:"",
@@ -45,15 +50,18 @@ formDispatch({
   value:value,
   isValid:isValid,
   inputId:id
-})
+})},[])
+const onSubmitHandler =(event)=>{
+event.preventDefault()
+console.log(formState.inputs)
+}
 
-    },[])
   return (
 <div>
-  <form>
+  <form onSubmit={onSubmitHandler}>
     <Input id="postTitle" onInput={inputHandler}  element="input" placeholder="title" type="text" errorText="please enter a valid title" validators={validatorRequire()}/>
     <Input id="postDescript" onInput={inputHandler} placeholder="discription" errorText="please enter a valid description" validators={validatorRequire()}/>
-    <Button>submit</Button>
+    <Button disabled={!formState.isValid}>submit</Button>
   </form>
 </div>
     )
