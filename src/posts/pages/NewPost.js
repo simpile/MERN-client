@@ -7,7 +7,7 @@ import {validatorRequire} from'../../shares/utils/validators'
 
 
 function NewPost() {
-const [formState, inputHandler]=useForm({
+const [formState, inputHandler]=useForm({ 
   postTitle:{
 valu:"",
 isValid:false
