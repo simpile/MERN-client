@@ -16,6 +16,9 @@ function NavLinks() {
   <li>
     <NavLink to="/newpost">add new post</NavLink>
       </li>
+  <li>
+    <NavLink to="/login">login</NavLink>
+      </li>
 </ul>
     )
 }
