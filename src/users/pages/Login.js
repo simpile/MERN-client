@@ -16,12 +16,17 @@ password:{
 }
 
 },false)
+const submitHandler =(event)=>{
+  event.preventDefault()
+  console.log(formState.inputs)
+}
+
   return (
     <div>
-        <form onSubmit={formState}>
+        <form onSubmit={submitHandler}>
             <Input id="email" type="email" placeholder="email" element="input" validators={[validatorRequire()]} errorText="wrong email" onInput={inputHandler}/>
             <Input id="password" type="password" placeholder="password" element="input" validators={[validatorRequire()]} errorText="wrong password" onInput={inputHandler}/>
-            <Button disabled={!formState.isValid}>login</Button>
+            <Button type="submit" disabled={!formState.isValid}>login</Button>
         </form>
     </div>
   )
