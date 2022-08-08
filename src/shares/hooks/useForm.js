@@ -1,9 +1,15 @@
-import React, { useCallback, useReducer } from 'react'
+import  { useCallback, useReducer } from 'react'
 const formReducer=(statee, action)=>{
     switch(action.type){
       case'INPUT-CHANGE':
         let formIsValid = true
+       
         for (const inputId in statee.inputs){
+
+          if(!statee.inputs[inputId]){
+            continue
+          }
+
           if(inputId===action.inputId){
           formIsValid = formIsValid && action.isValid}
            else{

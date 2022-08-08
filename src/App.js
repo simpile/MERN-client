@@ -6,7 +6,7 @@ import {
   
   // Link,
 } from "react-router-dom";
-import Posts from "./posts/pages/Posts";
+// import Posts from "./posts/pages/Posts";
 import NewPost from "./posts/pages/NewPost";
 import UserPost from "./posts/pages/UserPost";
 import MainNav from "./shares/components/Navigation/MainNav-parent";
