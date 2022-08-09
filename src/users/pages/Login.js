@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import Button from '../../shares/FormElemants/Button'
-import Input from '../../shares/FormElemants/Input'
+import React, { useContext, useState } from 'react'
+import Button from '../../shares/components/FormElemants/Button'
+import Input from '../../shares/components/FormElemants/Input'
 import { validatorRequire } from '../../shares/utils/validators'
 import {useForm} from '../../shares/hooks/useForm'
+import { AuthContext } from '../../shares/context/authContext'
 
  function Login() {
+  const auth= useContext(AuthContext)
   const[isLogin, setIsLogin]=useState(true)
-const[formState, inputHandler]=useForm({
+const[formState, inputHandler, setFormData]=useForm({
 email:{
     value:"",
     isValid:false
@@ -20,8 +22,22 @@ password:{
 const submitHandler =(event)=>{
   event.preventDefault()
   console.log(formState.inputs)
+  auth.login()
 }
 const changeModeHandler =()=>{
+if(!isLogin){
+  setFormData({...formState.inputs,
+                name:undefined},
+                formState.inputs.email.isValid &&
+                formState.inputs.password.isValid )}
+                else{setFormData({...formState.inputs,
+                name:{
+                  value:"",
+                  isValid:false
+                }},
+                false)
+                
+}
   setIsLogin(mode=>!mode)
 }
   return (

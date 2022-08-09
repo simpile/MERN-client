@@ -1,6 +1,6 @@
 import React from 'react'
 // import {Link} from 'react-router-dom'
-import Button from '../../shares/FormElemants/Button'
+import Button from '../../shares/components/FormElemants/Button'
 
 function PostItem(props) {
   return (

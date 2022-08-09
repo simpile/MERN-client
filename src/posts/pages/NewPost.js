@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '../../shares/FormElemants/Button'
-import Input from '../../shares/FormElemants/Input'
+import Button from '../../shares/components/FormElemants/Button'
+import Input from '../../shares/components/FormElemants/Input'
 import { useForm } from '../../shares/hooks/useForm'
 import {validatorRequire} from'../../shares/utils/validators'
 

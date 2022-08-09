@@ -27,6 +27,11 @@ const formReducer=(statee, action)=>{
           isValid:formIsValid
           
         }
+        case 'FORM-CHANG':
+          return{
+            inputs:action.inputs,
+            formIsValid:action.isFormValid
+          }
         default: 
         return statee
     }
@@ -43,6 +48,12 @@ export const useForm=(intialState, intialValidation)=>{
               isValid:isValid,
               inputId:id
             })},[])
-
-            return[formState, inputHandler]
+          const setFormData = useCallback((inputData, formValidatin)=>{
+            formDispatch({
+              type:"FORM-CHANGE",
+              inputs:inputData,
+              isFormValid:formValidatin,
+            })
+          })
+            return[formState, inputHandler, setFormData]
 }

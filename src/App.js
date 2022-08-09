@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -13,8 +13,23 @@ import MainNav from "./shares/components/Navigation/MainNav-parent";
 import Home from "./shares/pages/Home";
 import Users from "./users/pages/Users";
 import Login from "./users/pages/Login";
+import { AuthContext } from "./shares/context/authContext";
 function App() {
+  const [isLogin, setIsLogin]= useState(false)
+  const login= useCallback(()=>{
+    setIsLogin(true)
+  },[])
+  const logout= useCallback(()=>{
+    setIsLogin(false)
+  },[])
   return (
+    <AuthContext.Provider
+    value={{
+      isLogedin: isLogin ,
+      login: login,
+      logout:logout
+    }}
+    >
     <BrowserRouter>
     <MainNav/>
       <Routes>
@@ -26,7 +41,7 @@ function App() {
         <Route path="*" element={<Home />} />{/* redirect */}
       </Routes>
     </BrowserRouter>
-
+     </AuthContext.Provider>
   );
 }
 

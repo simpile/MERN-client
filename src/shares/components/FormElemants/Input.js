@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react'
-import {validate} from '../utils/validators'
+import {validate} from '../../utils/validators'
 
 const inputReducer=(state, action)=>{
   switch(action.type){
